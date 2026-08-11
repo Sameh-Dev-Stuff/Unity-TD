@@ -23,7 +23,7 @@ public class FPSCounter : MonoBehaviour
     private float averageFPS; 
     private float minFPS = float.MaxValue;
     private float maxFPS;
-
+    
     private void Awake()
     {
         Application.targetFrameRate = gameTargetFPS;
@@ -73,12 +73,12 @@ public class FPSCounter : MonoBehaviour
 
     private Color GetFPSColor(float fps)
     {
-        if (fps >= 55f)
+        if (fps >= gameTargetFPS / 1.05f)
         {
             return goodColor;
         }
 
-        if (fps >= 30f)
+        if (fps >= gameTargetFPS / 1.3f)
         {
             return warningColor;
         }

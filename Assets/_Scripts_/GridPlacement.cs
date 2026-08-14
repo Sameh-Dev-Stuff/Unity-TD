@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class GridPlacement : MonoBehaviour
@@ -17,7 +18,7 @@ public class GridPlacement : MonoBehaviour
 
     private void Update()
     {
-        if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
+        if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame && !EventSystem.current.IsPointerOverGameObject())
         {
             PlaceDefender();
         }
